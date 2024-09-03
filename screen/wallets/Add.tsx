@@ -19,7 +19,7 @@ import {
 import A from '../../blue_modules/analytics';
 import triggerHapticFeedback, { HapticFeedbackTypes } from '../../blue_modules/hapticFeedback';
 import { BlueButtonLink, BlueFormLabel, BlueSpacing20, BlueSpacing40, BlueText } from '../../BlueComponents';
-import { BlueApp, HDSegwitBech32Wallet, HDSegwitP2SHWallet, LightningCustodianWallet, SegwitP2SHWallet } from '../../class';
+import { BlueApp, EleriumWallet, HDSegwitBech32Wallet, HDSegwitP2SHWallet, LightningCustodianWallet, SegwitP2SHWallet } from '../../class';
 import presentAlert from '../../components/Alert';
 import Button from '../../components/Button';
 import ListItem from '../../components/ListItem';
@@ -203,7 +203,7 @@ const WalletsAdd: React.FC = () => {
     if (selectedWalletType === ButtonSelected.OFFCHAIN) {
       createLightningWallet();
     } else if (selectedWalletType === ButtonSelected.ONCHAIN) {
-      let w: HDSegwitBech32Wallet | SegwitP2SHWallet | HDSegwitP2SHWallet;
+      let w: EleriumWallet | HDSegwitBech32Wallet | SegwitP2SHWallet | HDSegwitP2SHWallet;
       if (selectedIndex === 2) {
         // zero index radio - HD segwit
         w = new HDSegwitP2SHWallet();
@@ -216,7 +216,7 @@ const WalletsAdd: React.FC = () => {
       } else {
         // btc was selected
         // index 2 radio - hd bip84
-        w = new HDSegwitBech32Wallet();
+        w = new EleriumWallet();
         w.setLabel(label || loc.wallets.details_title);
       }
       if (selectedWalletType === ButtonSelected.ONCHAIN) {

@@ -14,6 +14,7 @@ import { HDLegacyBreadwalletWallet } from './wallets/hd-legacy-breadwallet-walle
 import { HDLegacyElectrumSeedP2PKHWallet } from './wallets/hd-legacy-electrum-seed-p2pkh-wallet';
 import { HDLegacyP2PKHWallet } from './wallets/hd-legacy-p2pkh-wallet';
 import { HDSegwitBech32Wallet } from './wallets/hd-segwit-bech32-wallet';
+import { EleriumWallet } from './wallets/elerium-wallet';
 import { HDSegwitElectrumSeedP2WPKHWallet } from './wallets/hd-segwit-electrum-seed-p2wpkh-wallet';
 import { HDSegwitP2SHWallet } from './wallets/hd-segwit-p2sh-wallet';
 import { LegacyWallet } from './wallets/legacy-wallet';
@@ -401,6 +402,9 @@ export class BlueApp {
             break;
           case HDSegwitBech32Wallet.type:
             unserializedWallet = HDSegwitBech32Wallet.fromJson(key) as unknown as HDSegwitBech32Wallet;
+            break;
+          case EleriumWallet.type:
+            unserializedWallet = EleriumWallet.fromJson(key) as unknown as EleriumWallet;
             break;
           case HDLegacyBreadwalletWallet.type:
             unserializedWallet = HDLegacyBreadwalletWallet.fromJson(key) as unknown as HDLegacyBreadwalletWallet;
